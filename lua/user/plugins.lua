@@ -1,5 +1,5 @@
 local fn = vim.fn
-
+--
 -- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -52,6 +52,8 @@ return packer.startup(function(use)
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
+  use 'folke/tokyonight.nvim'
+  use "xiyaowong/nvim-transparent"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -82,7 +84,19 @@ return packer.startup(function(use)
 
   -- Git
   use "lewis6991/gitsigns.nvim"
+  -- copy
+  use "ojroques/vim-oscyank"
+  -- auto save
+  use "Pocco81/AutoSave.nvim"
 
+  -- golang
+  use "preservim/tagbar"
+  use 'mhinz/vim-startify'
+  -- use 'ray-x/go.nvim'
+  use 'fatih/vim-go'
+
+  -- use terminal
+  use 'akinsho/toggleterm.nvim'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
