@@ -32,8 +32,10 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
+keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
+keymap('n', '<leader>be', ":BufferLineSortByExtension<CR>", opts)
+
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
@@ -73,13 +75,17 @@ keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 
 -- Save and exit
+keymap('n', "<leader>qq", ":q!<cr>", opts)
 keymap("n", "<leader>z", ":q<cr>", opts)
-keymap("n", "<leader>w", ":wq<cr>", opts)
+keymap("n", "<leader>w", ":w<cr>", opts)
+keymap("n", "<leader>bd", ":bd<cr>", opts)
+keymap("n", "<leader>ww", ":wq<cr>", opts)
+keymap("i", "<C-w>", "<ESC><cmd>w<cr>a", opts)
 
 -- file explore
 keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
-keymap("n", "<leader>t", "<cmd>Telescope live_grep<cr>", opts)
-
+keymap("n", "<leader>g", "<cmd>Telescope live_grep<cr>", opts)
+keymap('n', '<leader>bb', "<cmd>Telescope buffers<cr>", opts)
 
 -- register
 
@@ -91,5 +97,23 @@ keymap("v", '<leader>c', ':OSCYank<cr>', opts)
 
 
 -- golang
-keymap("n", '<leader>t', ":TagbarToggle<cr>",opts)
+keymap("n", '<leader>tg', ":TagbarToggle<cr>",opts)
 
+-- easymove
+keymap('v', '<C-l>', '10zl', opts)
+keymap('v', '<C-h>', '10zh', opts)
+
+-- toggle
+keymap("n", '<leader>tl', ":lua _lazygit_toggle()<cr>", opts)
+keymap('n', '<leader>th', ":lua _htop()<cr>", opts)
+
+-- hop
+keymap('n', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", opts)
+keymap('n', 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", opts)
+keymap('n', '<leader>hl', ':HopLine<cr>', opts)
+keymap('n', '<leader>hw', ':HopWord<cr>', opts)
+
+
+-- map
+keymap('n',  '<leader>rc', ':w<cr>:!clang % -o out<cr>:ToggleTerm<cr>./out', opts)
+keymap('n', '<leader>rp', ':w<cr>:!<cr>:ToggleTerm<cr>.clang++ % -o out/out', opts)

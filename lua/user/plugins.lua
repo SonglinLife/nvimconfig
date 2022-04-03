@@ -45,15 +45,18 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
+  use "tpope/vim-surround"
   use "numToStr/Comment.nvim" -- Easily comment stuff
   use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
+  use 'akinsho/bufferline.nvim'
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
   use 'folke/tokyonight.nvim'
-  use "xiyaowong/nvim-transparent"
+  -- use "xiyaowong/nvim-transparent"
+  -- use "tribela/vim-transparent"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -87,19 +90,38 @@ return packer.startup(function(use)
   -- copy
   use "ojroques/vim-oscyank"
   -- auto save
-  use "Pocco81/AutoSave.nvim"
+  -- use "Pocco81/AutoSave.nvim"
 
   -- golang
   use "preservim/tagbar"
+  use 'ray-x/go.nvim'
+  -- use 'fatih/vim-go'
+  -- start
   use 'mhinz/vim-startify'
-  -- use 'ray-x/go.nvim'
-  use 'fatih/vim-go'
-
+  -- lualine
+  use {
+  'nvim-lualine/lualine.nvim',
+  requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
   -- use terminal
   use 'akinsho/toggleterm.nvim'
+  -- easymove
+  use {
+    'phaazon/hop.nvim',
+    branch = 'v1', -- optional but strongly recommended
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    end
+  }
+
+  -- format
+  use 'vim-autoformat/vim-autoformat'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
 end)
+
+
