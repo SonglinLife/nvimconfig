@@ -1,10 +1,12 @@
 -- require('go').setup()
-vim.cmd [[
-  augroup auto_import
-    autocmd!
-  autocmd BufWritePre (InsertLeave?) <buffer> lua vim.lsp.buf.formatting_sync(nil,500) augroup end
-]]
+-- vim.cmd [[
+--   augroup auto_import
+--     autocmd!
+--   autocmd BufWritePre (InsertLeave?) <buffer> lua vim.lsp.buf.formatting_sync(nil,500) augroup end
+-- ]]
+vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').gofmt() ]], false)
 vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport() ]], false)
+vim.api.nvim_exec([[ autocmd InsertLeave *.go :silent! lua require('go.format').goimport() ]], false)
 require('go').setup()
 
 -- vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').gofmt() ]], false)

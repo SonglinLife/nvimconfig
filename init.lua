@@ -16,3 +16,7 @@ require "user.toggleterm"
 require "user.keymaps"
 -- require "user.nvim-lualine"
 require("user.nvim-bufferline")
+require("user.nvim-coderunner")
+require("user.nvim-leetcode")
+
+require('neoscroll').setup()

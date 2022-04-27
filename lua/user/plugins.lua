@@ -42,11 +42,9 @@ packer.init {
 return packer.startup(function(use)
   -- My plugins here
   use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "tpope/vim-surround"
-  use "numToStr/Comment.nvim" -- Easily comment stuff
+  --use "numToStr/Comment.nvim" -- Easily comment stuff
   use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
   use 'akinsho/bufferline.nvim'
@@ -77,12 +75,15 @@ return packer.startup(function(use)
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
-
+  use 'nvim-lua/popup.nvim'
+  use 'nvim-lua/plenary.nvim'
+  use 'nvim-telescope/telescope-media-files.nvim'
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
+  use "p00f/nvim-ts-rainbow"
   use 'JoosepAlviste/nvim-ts-context-commentstring'
 
   -- Git
@@ -114,9 +115,18 @@ return packer.startup(function(use)
       require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
     end
   }
-
+  -- code runner
+  use { 'SonglinLife/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' }
   -- format
   use 'vim-autoformat/vim-autoformat'
+
+  use 'ianding1/leetcode.vim'
+
+  --comment
+  use "terrortylor/nvim-comment"
+
+  -- page up 
+  use 'karb94/neoscroll.nvim'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

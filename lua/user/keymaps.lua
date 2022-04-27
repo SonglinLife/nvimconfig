@@ -75,11 +75,13 @@ keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 
 -- Save and exit
-keymap('n', "<leader>qq", ":q!<cr>", opts)
+keymap('n', "<leader>qq", ":qa!<cr>", opts)
 keymap("n", "<leader>z", ":q<cr>", opts)
-keymap("n", "<leader>w", ":w<cr>", opts)
-keymap("n", "<leader>bd", ":bd<cr>", opts)
-keymap("n", "<leader>ww", ":wq<cr>", opts)
+keymap("n", "<leader>w", ":wa<cr>", opts)
+keymap("n", "<leader>bd", ":bd!<cr>", opts)
+keymap("n", "<leader>ba", ":%bd!|e#|bd#<cr>", opts) --close all buffers
+keymap("n", "<leader>be", ":bufdo e<cr>", opts)
+keymap("n", "<leader>ww", ":wqa<cr>", opts)
 keymap("i", "<C-w>", "<ESC><cmd>w<cr>a", opts)
 
 -- file explore
@@ -115,5 +117,5 @@ keymap('n', '<leader>hw', ':HopWord<cr>', opts)
 
 
 -- map
-keymap('n',  '<leader>rc', ':w<cr>:!clang % -o out<cr>:ToggleTerm<cr>./out', opts)
-keymap('n', '<leader>rp', ':w<cr>:!<cr>:ToggleTerm<cr>.clang++ % -o out/out', opts)
+keymap('n',  '<leader>rc', ':w<cr>:!clang % -o out<cr>:ToggleTerm<cr>./out<cr>', opts)
+keymap('n',  '<leader>rp', ':w<cr>:!clang++ % -o out<cr>:ToggleTerm<cr>./out<cr>', opts)
