@@ -44,6 +44,13 @@ M.setup = function()
   })
 end
 
+-- require'lspconfig'.ccls.setup{
+--   init_options = {
+--     highlight = {
+--       lsRanges = true;
+--     }
+--   }
+-- }
 local function lsp_highlight_document(client)
   -- Set autocommands conditional on server_capabilities
   if client.resolved_capabilities.document_highlight then
@@ -100,5 +107,4 @@ if not status_ok then
 end
 
 M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
-
 return M

@@ -9,6 +9,7 @@ local keymap = vim.api.nvim_set_keymap
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.g.oscyank_max_length = 1000000
 
 -- Modes
 --   normal_mode = "n",
@@ -19,7 +20,11 @@ vim.g.maplocalleader = " "
 --   command_mode = "c",
 
 -- Normal --
+keymap("n", "<leader>js", "<cmd>%!python -m json.tool<cr>", opts)
 -- Better window navigation
+keymap("n", "<leader>sh", "<cmd>split<cr>", opts)
+keymap("n", "<leader>sv", "<cmd>vs<cr>", opts)
+
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
@@ -81,7 +86,7 @@ keymap("n", "<leader>w", ":wa<cr>", opts)
 keymap("n", "<leader>bd", ":bd!<cr>", opts)
 keymap("n", "<leader>ba", ":%bd!|e#|bd#<cr>", opts) --close all buffers
 keymap("n", "<leader>be", ":bufdo e<cr>", opts)
-keymap("n", "<leader>ww", ":wqa<cr>", opts)
+keymap("n", "<leader>ww", ":wa<cr>:qa!<cr>", opts)
 keymap("i", "<C-w>", "<ESC><cmd>w<cr>a", opts)
 
 -- file explore
@@ -119,3 +124,5 @@ keymap('n', '<leader>hw', ':HopWord<cr>', opts)
 -- map
 keymap('n',  '<leader>rc', ':w<cr>:!clang % -o out<cr>:ToggleTerm<cr>./out<cr>', opts)
 keymap('n',  '<leader>rp', ':w<cr>:!clang++ % -o out<cr>:ToggleTerm<cr>./out<cr>', opts)
+
+keymap("n", "<leader>sc","<cmd>Neoformat<cr><cmd>w<cr>", opts)

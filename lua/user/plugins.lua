@@ -125,8 +125,14 @@ return packer.startup(function(use)
   --comment
   use "terrortylor/nvim-comment"
 
-  -- page up 
+  -- page up
   use 'karb94/neoscroll.nvim'
+  -- format
+  use 'sbdchd/neoformat'
+  -- grap macro
+  use "mphe/grayout.vim"
+
+  use "jackguo380/vim-lsp-cxx-highlight"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
