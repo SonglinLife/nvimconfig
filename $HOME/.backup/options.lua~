@@ -1,6 +1,6 @@
 local options = {
   backup = true,
-  backupdir = "/Users/wusonglin/.backup",
+  backupdir = "$HOME/.backup",
   clipboard = "unnamedplus",               -- allows neovim to access the system clipboard
   laststatus = 0,
   cmdheight = 2,                           -- more space in the neovim command line for displaying messages

@@ -1,0 +1,44 @@
+            packer.nvim - syncing 7 / 44 plugins
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ ✗ ray-x/go.nvim: failed to update
+ ✗ wbthomason/packer.nvim: failed to update
+ ✓ p00f/nvim-ts-rainbow: already up to date
+ ✓ nvim-telescope/telescope-media-files.nvim: already up to date
+ ⟳ akinsho/bufferline.nvim: pulling updates...
+ ✗ hrsh7th/cmp-path: failed to update
+ ✗ lewis6991/gitsigns.nvim: failed to update
+ ✗ rafamadriz/friendly-snippets: failed to update
+ ✗ saadparwaiz1/cmp_luasnip: failed to update
+ ✗ kyazdani42/nvim-tree.lua: failed to update
+ ✗ neovim/nvim-lspconfig: failed to update
+ ✗ phaazon/hop.nvim/v1: failed to update
+ ✓ SonglinLife/code_runner.nvim: already up to date
+ ✓ JoosepAlviste/nvim-ts-context-commentstring: already up to date
+ ✓ L3MON4D3/LuaSnip: already up to date
+ ⟳ kyazdani42/nvim-web-devicons: pulling updates...
+ ✓ terrortylor/nvim-comment: already up to date
+ ✗ karb94/neoscroll.nvim: failed to update
+ ✗ sbdchd/neoformat: failed to update
+ ✗ hrsh7th/cmp-nvim-lsp: failed to update
+ ✓ ianding1/leetcode.vim: already up to date
+ ✓ mphe/grayout.vim: already up to date
+ ✗ tpope/vim-surround: failed to update
+ ✓ nvim-treesitter/nvim-treesitter: already up to date
+ ⟳ jackguo380/vim-lsp-cxx-highlight: pulling updates...
+ ⟳ vim-autoformat/vim-autoformat: pulling updates...
+ ✗ windwp/nvim-autopairs: failed to update
+ ✗ nvim-lua/plenary.nvim: failed to update
+ ✗ hrsh7th/cmp-cmdline: failed to update
+ ⟳ nvim-lua/popup.nvim: pulling updates...
+ ✓ hrsh7th/cmp-buffer: already up to date
+ ✓ nvim-telescope/telescope.nvim: already up to date
+ ✓ akinsho/toggleterm.nvim: already up to date
+ ✗ hrsh7th/nvim-cmp: failed to update
+ ✗ nvim-lualine/lualine.nvim: failed to update
+ ✓ tamago324/nlsp-settings.nvim: already up to date
+ ✗ folke/tokyonight.nvim: failed to update
+ ✗ preservim/tagbar: failed to update
+ ✗ mhinz/vim-startify: failed to update
+ ✓ williamboman/nvim-lsp-installer: already up to date
+ ✓ lunarvim/darkplus.nvim: already up to date
+ ✗ ojroques/vim-oscyank: failed to update

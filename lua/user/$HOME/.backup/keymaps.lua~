@@ -126,7 +126,4 @@ keymap('n',  '<leader>rc', ':w<cr>:!clang % -o out<cr>:ToggleTerm<cr>./out<cr>',
 keymap('n',  '<leader>rp', ':w<cr>:!clang++ % -o out<cr>:ToggleTerm<cr>./out<cr>', opts)
 
 keymap("n", "<leader>sc","<cmd>Neoformat<cr><cmd>w<cr>", opts)
-keymap("n", "<D-z>",":q<cr>", opts)
-
-keymap("n", "<leader>pd", "<cmd>lua require'lsp-ext'.peek_definition()<cr>", opts)
-
+keymap("n", "<M-z>",":q<cr>", opts)

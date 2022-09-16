@@ -14,9 +14,10 @@ require "user.nvim-tree"
 require "user.nvim-go"
 require "user.toggleterm"
 require "user.keymaps"
+require "user.lsp-ext"
 -- require "user.nvim-lualine"
 require("user.nvim-bufferline")
-require("user.nvim-coderunner")
+-- require("user.nvim-coderunner")
 require("user.nvim-leetcode")
 
 require('neoscroll').setup()
