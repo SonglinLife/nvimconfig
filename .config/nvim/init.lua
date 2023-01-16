@@ -1,8 +1,7 @@
 require "user.options"
 require "user.plugins"
 require "user.colorscheme"
-require "user.cmp"
-require "user.lsp"
+-- require "user.lsp"
 require "user.telescope"
 -- require "user.treesitter"
 require "user.autopairs"
@@ -20,4 +19,7 @@ require("user.nvim-bufferline")
 
 require('neoscroll').setup()
 -- require("user.grey")
-require "user.nvim-semantic-tokens"
+require("user.treesitter")
+require "user.cmp"
+require("user.lsp")
+require("user.cmake")

@@ -35,6 +35,7 @@ keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<leader>nh", ":silent noh<cr>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
@@ -50,6 +51,7 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
 keymap("i", "jj", "<ESC>", opts)
+keymap("i", "<C-l>", "<ESC><cmd> lua require'luasnip'.unlink_current()<cr>la", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -81,23 +83,27 @@ keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 -- Save and exit
 keymap('n', "<leader>qq", ":qa!<cr>", opts)
+keymap('n', "<leader>qz", ":q!<cr>", opts)
 keymap("n", "<leader>z", ":q<cr>", opts)
-keymap("n", "<leader>w", ":wa<cr>", opts)
+keymap("n", "<leader>w", ":w<cr>", opts)
 keymap("n", "<leader>bd", ":bd!<cr>", opts)
+keymap("n", "<leader>bw", ":bw<cr>:bd<cr>", opts)
 keymap("n", "<leader>ba", ":%bd!|e#|bd#<cr>", opts) --close all buffers
 keymap("n", "<leader>be", ":bufdo e<cr>", opts)
 keymap("n", "<leader>ww", ":wa<cr>:qa!<cr>", opts)
-keymap("i", "<C-w>", "<ESC><cmd>w<cr>a", opts)
+keymap("n", "<leader>wa", ":wa<cr>", opts)
 
 -- file explore
 keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
-keymap("n", "<leader>g", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<leader>gd", "<cmd>Telescope live_grep<cr>", opts) -- search cmd all file except .gitignore
+keymap("n", "<leader>go", "<cmd>lua require'telescope.builtin'.live_grep({grep_open_files=true})<cr>", opts) -- search open file 
+keymap("n", "<leader>gc", "<cmd>w<cr><cmd>lua require'telescope.builtin'.live_grep({search_dirs={vim.fn.expand('%:p')}})<cr>", opts) -- search current buffer
 keymap('n', '<leader>bb', "<cmd>Telescope buffers<cr>", opts)
 
 -- register
 
 -- insert_mode
-keymap("i", '<C-n>', '<ESC>o', opts)
+-- keymap("i", '<C-n>', '<ESC>o', opts)
 
 -- copy with ssh
 keymap("v", '<leader>c', ':OSCYank<cr>', opts)
@@ -109,14 +115,15 @@ keymap("n", '<leader>tg', ":TagbarToggle<cr>",opts)
 -- easymove
 keymap('v', '<C-l>', '10zl', opts)
 keymap('v', '<C-h>', '10zh', opts)
+keymap('i', '<C-e>', '<ESC>A', opts)
 
 -- toggle
 keymap("n", '<leader>tl', ":lua _lazygit_toggle()<cr>", opts)
 keymap('n', '<leader>th', ":lua _htop()<cr>", opts)
 
 -- hop
-keymap('n', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", opts)
-keymap('n', 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", opts)
+keymap('n', '<leader>hf', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR})<cr>", opts)
+keymap('n', '<leader>hd', "<cmd>lua require'hop'.hint_char2()<cr>", opts)
 keymap('n', '<leader>hl', ':HopLine<cr>', opts)
 keymap('n', '<leader>hw', ':HopWord<cr>', opts)
 
@@ -128,5 +135,5 @@ keymap('n',  '<leader>rp', ':w<cr>:!clang++ % -o out<cr>:ToggleTerm<cr>./out<cr>
 keymap("n", "<leader>sc","<cmd>Neoformat<cr><cmd>w<cr>", opts)
 keymap("n", "<D-z>",":q<cr>", opts)
 
-keymap("n", "<leader>pd", "<cmd>lua require'lsp-ext'.peek_definition()<cr>", opts)
+keymap("n", "<leader>pd", "<cmd>lua require'user.lsp-ext'.peek_definition()<cr>", opts)
 

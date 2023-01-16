@@ -78,7 +78,18 @@ return packer.startup(function(use)
   -- LSP
   use({ "neovim/nvim-lspconfig", commit = "148c99bd09b44cf3605151a06869f6b4d4c24455" }) -- enable LSP
 	use({ "williamboman/nvim-lsp-installer", commit = "e9f13d7acaa60aff91c58b923002228668c8c9e6" }) -- simple to use language server installer
-  use({"theHamsta/nvim-semantic-tokens", commit="c3c19dcfe2d8c22708f4be4738730b6fe0c64097"})
+  -- semantic
+  use({"m-demare/hlargs.nvim"})
+  
+  use( {
+    "theHamsta/nvim-semantic-tokens",
+    config = function()
+      require("user.semantictokens").setup()
+    end,
+    disable = false,
+  })
+  use({'norcalli/nvim-colorizer.lua'})
+  -- use({"theHamsta/nvim-semantic-tokens", commit="c3c19dcfe2d8c22708f4be4738730b6fe0c64097"})
 	-- use({ "jose-elias-alvarez/null-ls.nvim", commit = "ff40739e5be6581899b43385997e39eecdbf9465" }) -- for formatters and linters
   -- use "neovim/nvim-lspconfig" -- enable LSP
   -- use "williamboman/nvim-lsp-installer" -- simple to use language server installer
@@ -86,6 +97,7 @@ return packer.startup(function(use)
 
   -- Telescope
 	use({ "nvim-telescope/telescope.nvim", commit = "d96eaa914aab6cfc4adccb34af421bdd496468b0" })
+  use {'nvim-telescope/telescope-ui-select.nvim',commit="62ea5e58c7bbe191297b983a9e7e89420f581369" }
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope-media-files.nvim'
@@ -93,7 +105,8 @@ return packer.startup(function(use)
   use({
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
-    commit = "518e27589c0463af15463c9d675c65e464efc2fe",
+    commit = "35ad87384b3e47b3b5758d1642bbea08c70200c0",
+    -- commit = "518e27589c0463af15463c9d675c65e464efc2fe",
   })
   use "p00f/nvim-ts-rainbow"
   use 'JoosepAlviste/nvim-ts-context-commentstring'
@@ -153,9 +166,16 @@ return packer.startup(function(use)
   -- use {"neoclide/coc.nvim", branch = "release" }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
+  use "p00f/clangd_extensions.nvim"
+  -- git differ
+  -- Packer
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  --cmake 
+  use { "Civitasv/cmake-tools.nvim", commit="ee86951c42986e810312c14c479996b1042e076c"}
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
+ 
 end)
 
 
